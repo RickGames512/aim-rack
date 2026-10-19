@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101114">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AIM RANK">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>AIM RANK — Treino Valorant</title>
+<style>
+:root{--bg:#101114;--panel:#1b1c22;--panel2:#292a32;--text:#f5f5f7;--muted:#a9abb8;--line:#383943;--red:#e44747;--green:#50bd91;--gold:#e4bc51;--shadow:0 10px 28px #0002}
+body.light{--bg:#f3f5f8;--panel:#fff;--panel2:#f1f3f7;--text:#20222a;--muted:#676b78;--line:#dfe3ea;--shadow:0 8px 22px #1720330d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:86px}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0} .app{max-width:900px;margin:auto;padding:14px}
+header{display:flex;align-items:center;gap:12px;padding:10px 2px 16px}.logo{width:48px;height:48px;border-radius:15px;background:var(--red);display:grid;place-items:center;font-size:25px;font-weight:900;color:white}.brand{flex:1}.brand h1{margin:0;font-size:21px;letter-spacing:1.4px}.brand small{color:var(--muted);letter-spacing:.7px}.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:10px}
+.hero,.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:13px;box-shadow:var(--shadow)}.hero{background:linear-gradient(135deg,var(--panel),var(--panel2));}.eyebrow{font-size:11px;color:var(--muted);letter-spacing:1.3px;text-transform:uppercase}.hero h2{margin:4px 0 10px;font-size:23px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.stat{background:var(--panel2);padding:12px;border-radius:13px;min-width:0}.stat b{display:block;font-size:23px}.stat span{font-size:11px;color:var(--muted)}.progress{height:8px;border-radius:99px;background:var(--line);overflow:hidden}.progress div{height:100%;background:var(--red);width:0%;transition:width .2s}
+nav{position:fixed;z-index:5;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--line);display:flex;justify-content:center;padding:7px 4px calc(7px + env(safe-area-inset-bottom));gap:2px}nav button{flex:1;max-width:150px;background:transparent;color:var(--muted);padding:7px 2px;border-radius:12px;font-size:11px}nav button span{display:block;font-size:20px;margin-bottom:2px}nav button.active{background:var(--panel2);color:var(--red);font-weight:700}
+h2,h3{margin:0 0 10px}h2{font-size:21px}h3{font-size:16px}.muted{color:var(--muted)}.small{font-size:12px}.row{display:flex;align-items:center;gap:10px}.between{justify-content:space-between}.grow{flex:1;min-width:0}.pill{display:inline-block;border-radius:99px;padding:4px 9px;font-size:11px;background:var(--panel2);color:var(--muted)}.btn{padding:11px 14px;border-radius:12px;background:var(--red);color:white;font-weight:700}.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn.danger{background:#7e2929}.btn:disabled{opacity:.45;cursor:default}.field{display:block;margin:11px 0}.field span{display:block;color:var(--muted);font-size:12px;margin-bottom:5px}input,select,textarea{width:100%;padding:11px 12px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--text);outline:none}textarea{min-height:80px;resize:vertical}.chips{display:flex;gap:7px;overflow:auto;padding:2px 0 10px}.chip{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:8px 11px;border-radius:99px}.chip.active{background:var(--red);border-color:var(--red);color:#fff}.task{border:1px solid var(--line);border-radius:14px;padding:13px;margin:9px 0;background:var(--panel)}.task p{margin:5px 0 10px;color:var(--muted);font-size:13px}.task .row{align-items:flex-start}.task .btn{padding:8px 10px;font-size:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.empty{text-align:center;padding:24px;color:var(--muted)}.badge{font-size:11px;color:var(--green);font-weight:700}.idea{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.idea input{width:auto;margin-top:4px;accent-color:var(--red)}.hide{display:none!important}.scoreline{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}footer{text-align:center;color:var(--muted);font-size:11px;padding:12px}
+@media(min-width:650px){.app{padding:22px}.main-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:13px}.stats{gap:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo">✕</div><div class="brand"><h1>AIM RANK</h1><small>VALORANT × AIMLABS · TRAINING HUB</small></div><button id="themeBtn" class="iconbtn" aria-label="Trocar tema">☀️</button></header>
+<main id="view"></main>
+<footer>Seu treino, seu progresso. Os dados ficam salvos neste aparelho/navegador.</footer>
+</div>
+<nav id="nav">
+<button data-tab="home" class="active"><span>⌂</span>Início</button>
+<button data-tab="training"><span>◎</span>Treinos</button>
+<button data-tab="scores"><span>▥</span>Pontuações</button>
+<button data-tab="achievements"><span>🏆</span>Conquistas</button>
+<button data-tab="profile"><span>♙</span>Perfil</button>
+</nav>
+<script>
+const $=s=>document.querySelector(s);
+const defaults={
+profile:{name:"Meu perfil",rank:"Sem elo",sens:"Baixa",goal:"Melhorar AD AD e mira",weekly:7},
+theme:"dark",xp:0,completed:[],scores:[],achievements:[],customTasks:[],goalPoints:500,notes:"",sessions:0,
+ideas:{}
+};
+let state;
+try{state={...defaults,...JSON.parse(localStorage.getItem("aimrank-state")||"{}")};state.profile={...defaults.profile,...(state.profile||{})}}catch(e){state={...defaults}}
+let tab="home",game="Aimlabs",cat="Todas",search="";
+const aimTasks=[
+["Gridshot","Flick","Treina aquisição rápida de alvos e coordenação."],
+["Sixshot","Precisão","Trabalha precisão em alvos pequenos e microajustes."],
+["Microshot","Precisão","Treina pequenos ajustes para acertar o centro."],
+["Spidershot","Flick","Treina flicks entre alvos em posições diferentes."],
+["Strafetrack","Tracking","Acompanha alvos que se movem lateralmente."],
+["Motiontrack","Tracking","Pratica acompanhar movimento contínuo."],
+["Switchtrack","Tracking","Alterna o foco entre alvos em movimento."],
+["Multishot","Flick","Pratica aquisição de múltiplos alvos."],
+["Reflexshot","Reflexo","Trabalha reação e aquisição rápida de alvos."],
+["Sixshot Ultimate","Precisão","Variação de precisão; disponibilidade pode mudar."],
+["VT Micro / Micro Flex","Precisão","Procura tarefas de microajuste equivalentes."],
+["Valorant: Small Flicks","Valorant","Busca uma playlist de comunidade voltada ao Valorant."],
+["Valorant: Headshot Precision","Valorant","Busca tarefas de precisão e colocação da mira."]
+];
+const valTasks=[
+["AD AD parado + tiro","Movimentação","Alterna A e D, estabiliza a movimentação e dá um tiro preciso."],
+["Counter-strafe","Movimentação","Treina a inversão de direção e o momento certo de disparar."],
+["Mira na altura da cabeça","Precisão","Move a mira entre alvos mantendo a altura da cabeça."],
+["Tiros únicos de Sheriff","Precisão","Prioriza precisão e controle do primeiro tiro."],
+["Vandal — rajadas curtas","Precisão","Dispara 2–3 balas e reposiciona a mira."],
+["Tracking de bots","Tracking","Acompanha os bots com a mira antes de disparar."],
+["Flick entre bots","Flick","Move a mira até a cabeça e corrige sem exagerar."],
+["Peek + tiro","Movimentação","Sai da cobertura, estabiliza o disparo e retorna."],
+["Deathmatch — primeiro tiro","Combate","Prioriza mira, movimentação e decisões de duelo."],
+["Deathmatch — controle de ângulos","Combate","Limpa ângulos com a mira já preparada."],
+["Deathmatch — sem agachar automático","Combate","Evita agachar por reflexo e aprende a reposicionar."],
+["Treino de spray","Precisão","Pratica controle de recuo em curta e média distância."],
+["Strafe + reposicionamento","Movimentação","Reposiciona entre tiros sem disparar enquanto ainda está impreciso."],
+["Pre-aim em mapas","Combate","Treina a mira nos pontos onde adversários costumam aparecer."],
+["Burst + transferência","Precisão","Faz uma rajada curta e move a mira para outro alvo."]
+];
+const extras=[
+["Gráfico de evolução","Comparar pontuações e precisão ao longo dos dias."],
+["Plano semanal automático","Distribuir os treinos conforme teus resultados."],
+["Importação de estatísticas","Preparar registro/importação de dados compatíveis."],
+["Metas diárias e lembretes","Acompanhar metas e horários."],
+["Patentes do app","Subir de nível ganhando XP e desbloqueando títulos."],
+["Desafios e missões diárias","Missões para criar consistência."],
+["Temporizador de descanso","Pausas entre rodadas."],
+["Comparador de sensibilidade","Anotar e comparar configurações."],
+["Estatísticas de Deathmatch","Registrar abates, mortes e foco da partida."],
+["Criador de rotinas","Combinar exercícios numa rotina própria."]
+];
+function save(){localStorage.setItem("aimrank-state",JSON.stringify(state))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function addXP(n){state.xp+=n;save()}
+function doneName(n){return state.completed.includes(n)}
+function complete(n){if(doneName(n))return;state.completed.push(n);addXP(10);render()}
+function shellStats(){return `<div class="stats"><div class="stat"><b>${state.xp}</b><span>XP TOTAL</span></div><div class="stat"><b>${state.completed.length}</b><span>TREINOS CONCLUÍDOS</span></div><div class="stat"><b>${state.achievements.length}</b><span>CONQUISTAS</span></div></div>`}
+function progress(){return Math.min(100,Math.round(state.xp/Math.max(1,state.goalPoints)*100))}
+function home(){return `<section class="hero"><div class="eyebrow">PAINEL DO JOGADOR</div><h2>Fala, ${esc(state.profile.name||"guerreiro")}! 🎯</h2><div class="muted">Um treino por vez. Evolução de verdade.</div>${shellStats()}<div class="row between" style="margin:16px 0 7px"><span class="muted small">Meta de XP</span><b>${progress()}%</b></div><div class="progress"><div style="width:${progress()}%"></div></div></section><div class="main-grid"><section class="card"><div class="eyebrow">ROTINA RECOMENDADA</div><h2>Precisão + AD AD</h2><p class="muted">15 min Aimlabs · 15 min campo de treino · 15–25 min Deathmatch.</p><button class="btn" onclick="tab='training';game='Aimlabs';cat='Precisão';render()">Começar rotina</button></section><section class="card"><h3>Meu perfil de treino</h3><div class="scoreline"><span class="muted">Elo</span><b>${esc(state.profile.rank)}</b></div><div class="scoreline"><span class="muted">Sensibilidade</span><b>${esc(state.profile.sens)}</b></div><div class="scoreline"><span class="muted">Objetivo</span><b>${esc(state.profile.goal)}</b></div><button class="btn secondary" onclick="tab='profile';render()">Editar perfil</button></section></div><section class="card"><h3>Como ganhar XP</h3><p>✓ Concluir exercício: <b>+10 XP</b></p><p>✓ Registrar pontuação: <b>+5 XP</b></p><p>✓ Adicionar conquista: <b>+20 XP</b></p><p class="muted small">XP é um sistema motivacional do app, não uma estatística oficial do Valorant.</p></section><section class="card"><h3>Instalar no iPhone</h3><p class="muted">Depois de publicar o app em um endereço HTTPS, abre-o no Safari, toca em <b>Compartilhar</b> → <b>Adicionar à Tela de Início</b>.</p></section>`}
+function taskCard(t){let name=t[0],finished=doneName(name);return `<article class="task"><div class="row between"><div class="grow"><b>${esc(name)}</b><div class="pill">${esc(t[1])}</div></div><span class="${finished?'badge':'pill'}">${finished?'Concluído':'+10 XP'}</span></div><p>${esc(t[2])}</p><button class="btn ${finished?'secondary':''}" ${finished?'disabled':''} onclick="complete('${esc(name).replace(/'/g,"\\'")}')">${finished?'Registrado':'Concluir exercício'}</button></article>`}
+function training(){let list=game==="Aimlabs"?aimTasks:valTasks;let cats=["Todas",...new Set(list.map(t=>t[1]))];list=list.filter(t=>(cat==="Todas"||t[1]===cat)&&(`${t[0]} ${t[1]} ${t[2]}`).toLowerCase().includes(search.toLowerCase()));return `<div class="row between"><h2>Biblioteca de treinos</h2><span class="pill">${game}</span></div><div class="chips"><button class="chip ${game==='Aimlabs'?'active':''}" onclick="game='Aimlabs';cat='Todas';render()">Aimlabs</button><button class="chip ${game==='Valorant'?'active':''}" onclick="game='Valorant';cat='Todas';render()">Valorant</button></div><input id="taskSearch" placeholder="Buscar exercício..." value="${esc(search)}" oninput="search=this.value;let p=this.selectionStart;render();let x=document.querySelector('#taskSearch');x.focus();x.setSelectionRange(p,p)"><div class="chips">${cats.map(c=>`<button class="chip ${cat===c?'active':''}" onclick="cat='${esc(c)}';render()">${esc(c)}</button>`).join('')}</div><p class="muted small">${list.length} exercícios visíveis · marca cada tarefa depois de concluir.</p>${list.map(taskCard).join('')}<section class="card"><h3>Adicionar exercício personalizado</h3><form onsubmit="addCustom(event)"><label class="field"><span>Nome</span><input id="customName" required placeholder="Ex.: Playlist de counter-strafe"></label><label class="field"><span>Descrição</span><input id="customDesc" placeholder="O que queres praticar?"></label><button class="btn">Adicionar exercício</button></form>${state.customTasks.map(t=>taskCard(t)).join('')}</section><p class="muted small">Nota: este é um catálogo inicial de tarefas conhecidas e exercícios sugeridos. Não é uma lista oficial exaustiva de todo o catálogo atual do Aimlabs; nomes e playlists podem variar.</p>`}
+function addCustom(e){e.preventDefault();let n=$('#customName').value.trim(),d=$('#customDesc').value.trim()||'Exercício criado por ti.';if(n){state.customTasks.push([n,'Personalizado',d]);save();render()}}
+function scores(){return `<h2>Pontuações e evolução</h2><section class="card"><h3>Registrar resultado</h3><form onsubmit="addScore(event)"><label class="field"><span>Exercício</span><select id="scoreTask">${['Gridshot','Sixshot','Microshot','Spidershot','Strafetrack','Motiontrack','Outro'].map(x=>`<option>${x}</option>`).join('')}</select></label><label class="field"><span>Pontuação ou resultado</span><input id="scoreValue" required placeholder="Ex.: 52000 pontos ou 83%"></label><label class="field"><span>Observação (opcional)</span><input id="scoreNote" placeholder="Ex.: acertei mais alvos que ontem"></label><button class="btn">Salvar resultado · +5 XP</button></form></section><section class="card"><h3>Meta de XP</h3><label class="field"><span>Meta total</span><input type="number" id="goalPoints" min="100" max="100000" value="${state.goalPoints}"></label><button class="btn secondary" onclick="state.goalPoints=Math.max(100,Number($('#goalPoints').value)||500);save();render()">Atualizar meta</button><div class="row between" style="margin:14px 0 7px"><span class="muted small">${state.xp} / ${state.goalPoints} XP</span><b>${progress()}%</b></div><div class="progress"><div style="width:${progress()}%"></div></div></section><section class="card"><h3>Histórico</h3>${state.scores.length?state.scores.map(s=>`<div class="scoreline"><div><b>${esc(s.task)}</b><div class="muted small">${esc(s.date)} ${s.note?'· '+esc(s.note):''}</div></div><b>${esc(s.value)}</b></div>`).join(''):'<div class="empty">Ainda não há resultados registrados.</div>'}<button class="btn secondary" onclick="exportData()">Exportar backup dos dados</button> <button class="btn secondary" onclick="clearScores()">Limpar resultados</button></section>`}
+function addScore(e){e.preventDefault();state.scores.unshift({task:$('#scoreTask').value,value:$('#scoreValue').value.trim(),note:$('#scoreNote').value.trim(),date:new Date().toLocaleDateString('pt-BR')});state.sessions++;addXP(5);save();render()}
+function clearScores(){if(confirm('Apagar todo o histórico de pontuações?')){state.scores=[];save();render()}}
+function achievements(){return `<h2>Minhas conquistas 🏆</h2><section class="card"><p class="muted">Registra manualmente os feitos que alcança no Valorant. O app não detecta estatísticas automaticamente.</p><form onsubmit="addAchievement(event)"><label class="field"><span>Conquista</span><input id="achievementName" required placeholder="Ex.: Fiz meu primeiro Ace"></label><label class="field"><span>Detalhes (opcional)</span><input id="achievementDetail" placeholder="Agente, mapa, modo..."></label><button class="btn">Registrar conquista · +20 XP</button></form></section><section class="card"><h3>Minhas conquistas</h3>${state.achievements.length?state.achievements.map((a,i)=>`<div class="scoreline"><div class="grow"><b>🏆 ${esc(a.name)}</b><div class="muted small">${esc(a.date)} ${a.detail?'· '+esc(a.detail):''}</div></div><button class="btn secondary" onclick="deleteAchievement(${i})">Excluir</button></div>`).join(''):'<div class="empty">Tua história começa aqui. Registra teu primeiro Ace, clutch, MVP ou recorde pessoal.</div>'}</section>`}
+function addAchievement(e){e.preventDefault();state.achievements.unshift({name:$('#achievementName').value.trim(),detail:$('#achievementDetail').value.trim(),date:new Date().toLocaleDateString('pt-BR')});addXP(20);save();render()}
+function deleteAchievement(i){state.achievements.splice(i,1);save();render()}
+function profile(){return `<h2>Meu perfil</h2><section class="card"><form onsubmit="saveProfile(event)"><label class="field"><span>Nickname</span><input id="pName" value="${esc(state.profile.name)}" placeholder="Teu nick"></label><label class="field"><span>Elo atual</span><select id="pRank">${['Sem elo','Ferro','Bronze','Prata','Ouro','Platina','Diamante','Ascendente','Imortal','Radiante'].map(x=>`<option ${x===state.profile.rank?'selected':''}>${x}</option>`).join('')}</select></label><label class="field"><span>Sensibilidade</span><select id="pSens">${['Baixa','Média','Alta'].map(x=>`<option ${x===state.profile.sens?'selected':''}>${x}</option>`).join('')}</select></label><label class="field"><span>Objetivo principal</span><select id="pGoal">${['Melhorar AD AD e mira','Melhorar flick','Melhorar tracking','Subir de elo','Melhorar consistência'].map(x=>`<option ${x===state.profile.goal?'selected':''}>${x}</option>`).join('')}</select></label><label class="field"><span>Meta de dias de treino por semana</span><select id="pWeekly">${[3,4,5,6,7].map(x=>`<option value="${x}" ${x===Number(state.profile.weekly)?'selected':''}>${x} dias</option>`).join('')}</select></label><button class="btn">Salvar perfil</button></form></section><section class="card"><h3>Tema do app</h3><div class="two"><button class="btn ${state.theme==='dark'?'':'secondary'}" onclick="setTheme('dark')">🌙 Escuro</button><button class="btn ${state.theme==='light'?'':'secondary'}" onclick="setTheme('light')">☀️ Claro</button></div></section><section class="card"><h3>Mais funcionalidades</h3><p class="muted">Marca o que queres numa próxima versão.</p>${extras.map((x,i)=>`<label class="idea"><input type="checkbox" ${state.ideas[i]?'checked':''} onchange="state.ideas[${i}]=this.checked;save()"><span><b>${esc(x[0])}</b><br><span class="muted small">${esc(x[1])}</span></span></label>`).join('')}<button class="btn" onclick="sendIdeas()">Confirmar minhas ideias</button><div id="ideasStatus" class="muted small"></div></section><section class="card"><h3>Backup e privacidade</h3><p class="muted small">Os dados ficam guardados no armazenamento local deste navegador. Exporta um backup antes de limpar os dados do Safari ou trocar de aparelho.</p><button class="btn secondary" onclick="exportData()">Exportar backup</button><label class="field"><span>Restaurar backup JSON</span><input type="file" id="importFile" accept="application/json" onchange="importData(event)"></label><button class="btn danger" onclick="resetAll()">Apagar todos os dados</button></section>`}
+function saveProfile(e){e.preventDefault();state.profile={name:$('#pName').value.trim()||'Meu perfil',rank:$('#pRank').value,sens:$('#pSens').value,goal:$('#pGoal').value,weekly:Number($('#pWeekly').value)};save();render()}
+function setTheme(t){state.theme=t;save();applyTheme();render()}
+function applyTheme(){document.body.classList.toggle('light',state.theme==='light');document.querySelector('meta[name="theme-color"]').content=state.theme==='light'?'#f3f5f8':'#101114';$('#themeBtn').textContent=state.theme==='light'?'🌙':'☀️'}
+function sendIdeas(){let chosen=extras.filter((x,i)=>state.ideas[i]).map(x=>x[0]);$('#ideasStatus').textContent=chosen.length?'Selecionadas: '+chosen.join(', '):'Ainda não selecionaste nenhuma ideia.'}
+function exportData(){let b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='aim-rank-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);state={...defaults,...d,profile:{...defaults.profile,...d.profile}};save();applyTheme();render();alert('Backup restaurado!')}catch(err){alert('Esse arquivo não parece ser um backup válido.')}};r.readAsText(f)}
+function resetAll(){if(confirm('Tem certeza que quer apagar todos os dados? Esta ação não pode ser desfeita.')){state={...defaults,profile:{...defaults.profile},completed:[],scores:[],achievements:[],customTasks:[],ideas:{}};save();render()}}
+function render(){let v=tab==='home'?home():tab==='training'?training():tab==='scores'?scores():tab==='achievements'?achievements():profile();$('#view').innerHTML=v;document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));applyTheme()}
+document.querySelectorAll('#nav button').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;render();window.scrollTo({top:0,behavior:'smooth'})}));
+$('#themeBtn').addEventListener('click',()=>setTheme(state.theme==='dark'?'light':'dark'));
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+render();
+</script>
+</body>
+</html>
